@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  --color-roast-bg: #14100e;
+  --color-roast-surface: #1e1713;
+  --color-roast-card: #251d18;
+  --color-roast-card-hover: #2d231d;
+  --color-roast-border: #3d2f25;
+  --color-roast-border-subtle: #31261e;
+  --color-roast-crema: #e07a48;
+  --color-roast-crema-hover: #d26e3d;
+  --color-roast-text: #f5ece5;
+  --color-roast-muted: #a69588;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    background-color: #14100e;
+    color: #f5ece5;
+    background-image: 
+      radial-gradient(circle at 15% 10%, rgba(224, 122, 72, 0.08) 0%, transparent 45%),
+      radial-gradient(circle at 85% 15%, rgba(139, 69, 19, 0.12) 0%, transparent 50%),
+      radial-gradient(circle at 50% 80%, rgba(224, 122, 72, 0.05) 0%, transparent 60%);
+    background-attachment: fixed;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  /* Custom subtle coffee scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #14100e;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #3a2d24;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #4f3d31;
+  }
+}
+
+.glass-panel {
+  background: rgba(33, 25, 20, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(66, 51, 41, 0.55);
+}
+
+.glass-card {
+  background: rgba(37, 29, 24, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(68, 53, 43, 0.6);
+}
+
+.glass-card:hover {
+  background: rgba(45, 35, 29, 0.95);
+  border-color: rgba(94, 73, 59, 0.8);
+}
+
+.glass-nav-pill {
+  background: rgba(43, 33, 27, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(68, 53, 43, 0.5);
+}
+
+.btn-crema {
+  background: linear-gradient(135deg, #e58250 0%, #d8703e 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 16px rgba(224, 122, 72, 0.35);
+}
+.btn-crema:hover {
+  background: linear-gradient(135deg, #eb8b5a 0%, #e07441 100%);
+  box-shadow: 0 6px 20px rgba(224, 122, 72, 0.45);
+}
+
+/* Thermal Sticker and Surat Jalan Print Rules */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+  .printable-thermal-label {
+    width: 80mm !important;
+    max-width: 80mm !important;
+    padding: 3mm !important;
+    margin: 0 auto !important;
+    border: 1px dashed #000 !important;
+    page-break-inside: avoid;
+    color: #000 !important;
+    background: #fff !important;
+  }
+  .printable-surat-jalan {
+    width: 100% !important;
+    max-width: 100% !important;
+    color: #000 !important;
+    background: #fff !important;
+    page-break-inside: avoid;
+  }
+}

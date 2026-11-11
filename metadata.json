@@ -1,0 +1,6 @@
+{
+  "name": "BDS Coffee Company - Roastery & Warehouse System",
+  "description": "Production-grade roastery inventory, batch tracking, roast queue, thermal QR label printing, and warehouse management system for BDS Coffee.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
